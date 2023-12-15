@@ -106,22 +106,10 @@
       ]
     },
     {
-      "tag":"GoogleFCM",
-      "type":"selector",
-        "outbounds":[
-        "direct",
-        "🇭🇰 香港节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇯🇵 日本节点",
-        "🇺🇸 美国节点",
-        "✈️ 其他节点"
-      ]
-    },
-    {
       "tag":"🤖 OpenAI",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
         "🇯🇵 日本节点",
@@ -133,6 +121,7 @@
       "tag":"🌌 Google",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -145,6 +134,7 @@
       "tag":"🌌 Github",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -157,6 +147,7 @@
       "tag":"📟 Telegram",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -169,6 +160,7 @@
       "tag":"🐦 Twitter",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -181,6 +173,7 @@
       "tag":"👤 Facebook",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -253,7 +246,21 @@
     {
       "tag":"🎬 MediaVideo",
       "type":"selector",
-      "outbounds":[
+        "outbounds":[
+        "proxy",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇯🇵 日本节点",
+        "🇺🇸 美国节点",
+        "✈️ 其他节点"
+      ]
+    },
+    {
+      "tag":"GoogleFCM",
+      "type":"selector",
+        "outbounds":[
+        "direct",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -434,7 +441,7 @@
         "outbound": "🌌 Google"
       },
       {
-        "rule_set": ["geosite-googlefcm","geoip-googlefcm"],
+        "rule_set": ["geosite-googlefcm"],
         "outbound": "GoogleFCM"
       },
       {
@@ -512,13 +519,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geoip-googlefcm",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/googleFCM.srs",
         "download_detour": "direct"
       },
       {
