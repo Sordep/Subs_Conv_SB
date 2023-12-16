@@ -20,7 +20,7 @@
     "servers": [
       {
         "tag": "proxyDns",
-        "address": "tls://8.8.8.8",
+        "address": "https://1.1.1.1/dns-query",
         "detour": "proxy"
       },
       {
@@ -274,6 +274,7 @@
       "tag":"🌏 !cn",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
