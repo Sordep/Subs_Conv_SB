@@ -501,10 +501,6 @@
         "outbound": "🎬 MediaVideo"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "🌏 !cn"
-      },
-      {
         "ip_is_private": true,
         "outbound": "🌏 cn"
       },
@@ -515,7 +511,12 @@
       {
         "rule_set": "geosite-cn",
         "outbound": "🌏 cn"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "🌏 !cn"
       }
+
     ],
     "rule_set": [
       {
