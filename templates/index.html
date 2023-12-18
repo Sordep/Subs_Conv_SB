@@ -52,34 +52,6 @@
 </head>
 <body>
     <div class="container">
-        <!--
-        <div class="left-box">
-            <h1>Providers JSON 模板</h1>
-            <form id="providers-form" method="POST" action="/update_providers">
-                <textarea name="providers_data" rows="10" cols="40" style="width: 400px; height: 400px;">{{ providers_data | safe }}</textarea>
-                <br>
-            </form>
-        </div>
-        -->
-        <div class="right-box">
-            <h1>Edit TEMP_JSON_DATA</h1>
-            <form id="temp-json-form" method="POST" action="/edit_temp_json">
-                <textarea name="temp_json_data" rows="10" cols="40" style="width: 400px; height: 400px;">{{ temp_json_data | default('') }}</textarea>
-                <br>
-                <input type="submit" value="save">
-            </form>
-            <button onclick="toggleLanguage()">Switch Language</button>
-            <div class="form-container" style="display: flex; align-items: center;">
-                <form method="POST" action="/generate_config" style="display: flex; align-items: center;">
-                    <select name="template_index">
-                        {% for option in template_options %}
-                        <option value="{{ loop.index - 1 }}">{{ option }}</option>
-                        {% endfor %}
-                    </select>
-                    <input type="submit" value="Select and Generate">
-                </form>
-            </div>
-        </div>
         <div class="config-content">
             <h3 style="margin: 8px 0; font-size: 14px;"><a href="https://github.com/Toperlock/sing-box-subscribe#%E9%A1%B5%E9%9D%A2%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4" target="_blank" rel="noopener noreferrer">请务必：点击查看操作说明</a></h3>
             <h3 style="margin: 8px 0; font-size: 14px;"><a href="https://github.com/Toperlock/sing-box-subscribe/tree/main/instructions#steps-for-page-manipulation" target="_blank" rel="noopener noreferrer">Please be sure to: Click to view operation instructions.</a></h3>
