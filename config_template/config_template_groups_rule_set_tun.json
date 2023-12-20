@@ -414,7 +414,8 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
+    "override_android_vpn": true,
+    "final": "direct",
     "rules": [
       {
         "protocol": "dns",
