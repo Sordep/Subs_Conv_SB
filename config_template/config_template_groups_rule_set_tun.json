@@ -68,7 +68,7 @@
         "server": "proxyDns"
       }
     ],
-    "strategy": "ipv4_only"
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
@@ -188,6 +188,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -201,6 +202,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -214,6 +216,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -227,6 +230,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -268,6 +272,20 @@
         "🇯🇵 日本节点",
         "🇺🇸 美国节点",
         "✈️ 其他节点"
+      ]
+    },
+    {
+      "tag":"🌏 gfw",
+      "type":"selector",
+      "outbounds":[
+        "proxy",
+        "🇭🇰 香港节点",
+        "🇹🇼 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇯🇵 日本节点",
+        "🇺🇸 美国节点",
+        "✈️ 其他节点",
+        "direct"
       ]
     },
     {
@@ -513,6 +531,10 @@
         "outbound": "🌏 cn"
       },
       {
+        "rule_set": "geosite-gfw",
+        "outbound": "🌏 gfw"
+      },
+      {
         "rule_set": "geosite-geolocation-!cn",
         "outbound": "🌏 !cn"
       }
@@ -706,6 +728,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-gfw",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/gfw.srs",
         "download_detour": "direct"
       },
       {
