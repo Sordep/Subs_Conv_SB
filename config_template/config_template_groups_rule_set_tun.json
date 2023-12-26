@@ -36,6 +36,7 @@
     "rules": [
       {
         "domain": [
+          "mirror.ghproxy.com",
           "ghproxy.com",
           "cdn.jsdelivr.net",
           "testingcf.jsdelivr.net"
@@ -532,7 +533,7 @@
       },
       {
         "ip_is_private": true,
-        "outbound": "🌏 cn"
+        "outbound": "direct"
       },
       {
         "rule_set": "geoip-cn",
