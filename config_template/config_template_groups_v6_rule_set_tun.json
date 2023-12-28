@@ -1,5 +1,6 @@
 {
   "log": {
+    "disabled": true,
     "level": "debug",
     "timestamp": true
   },
@@ -21,7 +22,7 @@
     "servers": [
       {
         "tag": "proxyDns",
-        "address": "tls://8.8.8.8",
+        "address": "https://1.1.1.1/dns-query",
         "detour": "proxy"
       },
       {
@@ -37,6 +38,7 @@
     "rules": [
       {
         "domain": [
+          "mirror.ghproxy.com",
           "ghproxy.com",
           "cdn.jsdelivr.net",
           "testingcf.jsdelivr.net"
@@ -278,10 +280,9 @@
     },
     {
       "tag":"🇸🇬 狮城节点",
-      "type":"selector",
+      "type":"urltest",
       "outbounds":[
-        "{all}",
-        "proxy"
+        "{all}"
       ],
       "filter":[
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
@@ -289,7 +290,7 @@
     },
     {
       "tag":"🇯🇵 日本节点",
-      "type":"selector",
+      "type":"urltest",
       "outbounds":[
         "{all}",
         "proxy"
@@ -300,10 +301,9 @@
     },
     {
       "tag":"🇺🇸 美国节点",
-      "type":"selector",
+      "type":"urltest",
       "outbounds":[
-        "{all}",
-        "proxy"
+        "{all}"
       ],
       "filter":[
         {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
@@ -314,10 +314,11 @@
       "type":"selector",
       "outbounds":[
         "{all}",
+        "direct",
         "proxy"
       ],
       "filter":[
-        {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|网站|剩余|流量|过期|时间|期|地址"]}
+        {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|网站|剩余|流量|过期|时间|期|地址|勿连接"]}
       ]
     },
     {
@@ -342,8 +343,12 @@
       "outbounds":[
         "{all}"
       ],
+      "filter":[
+        {"action":"exclude","keywords":["网站|剩余|流量|过期|时间|期|地址|勿连接"]}
+      ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
+      "interval": "360m",
+      "idle_timeout": "360m",
       "tolerance": 50
     },
     {
@@ -361,7 +366,8 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
+    "override_android_vpn": true,
+    "final": "final",
     "rules": [
       {
         "type": "logical",
@@ -419,15 +425,19 @@
         "outbound": "🤖 OpenAI"
       },
       {
+        "rule_set": ["geosite-googlefcm"],
+        "outbound": "GoogleFCM"
+      },
+      {
         "rule_set": "geosite-youtube",
         "outbound": "🌌 Google"
       },
       {
-        "rule_set": "geoip-google",
-        "outbound": "🌌 Google"
+        "rule_set": "geosite-github",
+        "outbound": "🌌 Github"
       },
       {
-        "rule_set": ["geosite-google","geosite-github"],
+        "rule_set": ["geosite-google","geoip-google"],
         "outbound": "🌌 Google"
       },
       {
@@ -483,12 +493,8 @@
         "outbound": "🎬 MediaVideo"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "🌏 !cn"
-      },
-      {
         "ip_is_private": true,
-        "outbound": "🌏 cn"
+        "outbound": "direct"
       },
       {
         "rule_set": "geoip-cn",
@@ -497,6 +503,14 @@
       {
         "rule_set": "geosite-cn",
         "outbound": "🌏 cn"
+      },
+      {
+        "rule_set": "geosite-gfw",
+        "outbound": "🌏 gfw"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "🌏 !cn"
       }
     ],
     "rule_set": [
@@ -561,6 +575,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-googlefcm",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/googlefcm.srs",
         "download_detour": "direct"
       },
       {
@@ -680,6 +701,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-gfw",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/gfw.srs",
         "download_detour": "direct"
       },
       {
