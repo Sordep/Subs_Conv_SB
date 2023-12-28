@@ -1,6 +1,5 @@
 {
   "log": {
-    "disabled": true,
     "level": "debug",
     "timestamp": true
   },
@@ -9,18 +8,20 @@
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
       "secret": "",
+      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/gh-pages.zip",
+      "external_ui_download_detour": "🇭🇰 香港节点",
       "default_mode": "rule"
     },
   "cache_file": {
     "enabled": true,
-    "store_fakeip": true
+    "store_fakeip": false
     }
   },
   "dns": {
     "servers": [
       {
         "tag": "proxyDns",
-        "address": "https://1.1.1.1/dns-query",
+        "address": "tls://8.8.8.8",
         "detour": "proxy"
       },
       {
@@ -36,7 +37,6 @@
     "rules": [
       {
         "domain": [
-          "mirror.ghproxy.com",
           "ghproxy.com",
           "cdn.jsdelivr.net",
           "testingcf.jsdelivr.net"
@@ -75,9 +75,10 @@
     {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
       "mtu": 9000,
       "auto_route": true,
-      "strict_route": true,
+      "strict_route": false,
       "sniff": true,
       "endpoint_independent_nat": false,
       "stack": "system",
@@ -111,7 +112,6 @@
       "tag":"🤖 OpenAI",
       "type":"selector",
       "outbounds":[
-        "proxy",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
         "🇯🇵 日本节点",
@@ -124,20 +124,6 @@
       "tag":"🌌 Google",
       "type":"selector",
       "outbounds":[
-        "proxy",
-        "🇭🇰 香港节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇯🇵 日本节点",
-        "🇺🇸 美国节点",
-        "✈️ 其他节点"
-      ]
-    },
-    {
-      "tag":"🌌 Github",
-      "type":"selector",
-      "outbounds":[
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -150,7 +136,6 @@
       "tag":"📟 Telegram",
       "type":"selector",
       "outbounds":[
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -163,7 +148,6 @@
       "tag":"🐦 Twitter",
       "type":"selector",
       "outbounds":[
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -176,7 +160,6 @@
       "tag":"👤 Facebook",
       "type":"selector",
       "outbounds":[
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -190,7 +173,6 @@
       "type":"selector",
       "outbounds":[
         "direct",
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -204,7 +186,6 @@
       "type":"selector",
       "outbounds":[
         "direct",
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -218,7 +199,6 @@
       "type":"selector",
       "outbounds":[
         "direct",
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -232,7 +212,6 @@
       "type":"selector",
       "outbounds":[
         "direct",
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -253,49 +232,7 @@
     {
       "tag":"🎬 MediaVideo",
       "type":"selector",
-        "outbounds":[
-        "proxy",
-        "🇭🇰 香港节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇯🇵 日本节点",
-        "🇺🇸 美国节点",
-        "✈️ 其他节点"
-      ]
-    },
-    {
-      "tag":"GoogleFCM",
-      "type":"selector",
-        "outbounds":[
-        "direct",
-        "🇭🇰 香港节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇯🇵 日本节点",
-        "🇺🇸 美国节点",
-        "✈️ 其他节点"
-      ]
-    },
-    {
-      "tag":"🌏 gfw",
-      "type":"selector",
       "outbounds":[
-        "proxy",
-        "🇭🇰 香港节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇯🇵 日本节点",
-        "🇺🇸 美国节点",
-        "✈️ 其他节点",
-        "direct"
-      ]
-    },
-    {
-      "tag": "final",
-      "type": "selector",
-      "outbounds": [
-        "direct",
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -308,8 +245,6 @@
       "tag":"🌏 !cn",
       "type":"selector",
       "outbounds":[
-        "final",
-        "proxy",
         "🇭🇰 香港节点",
         "🇹🇼 台湾节点",
         "🇸🇬 狮城节点",
@@ -319,12 +254,12 @@
         "direct"
       ]
     },
-
     {
       "tag":"🇭🇰 香港节点",
-      "type":"urltest",
+      "type":"selector",
       "outbounds":[
-        "{all}"
+        "{all}",
+        "proxy"
       ],
       "filter":[
         {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
@@ -332,9 +267,10 @@
     },
     {
       "tag":"🇹🇼 台湾节点",
-      "type":"urltest",
+      "type":"selector",
       "outbounds":[
-        "{all}"
+        "{all}",
+        "proxy"
       ],
       "filter":[
         {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
@@ -342,9 +278,10 @@
     },
     {
       "tag":"🇸🇬 狮城节点",
-      "type":"urltest",
+      "type":"selector",
       "outbounds":[
-        "{all}"
+        "{all}",
+        "proxy"
       ],
       "filter":[
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
@@ -352,9 +289,10 @@
     },
     {
       "tag":"🇯🇵 日本节点",
-      "type":"urltest",
+      "type":"selector",
       "outbounds":[
-        "{all}"
+        "{all}",
+        "proxy"
       ],
       "filter":[
         {"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}
@@ -362,9 +300,10 @@
     },
     {
       "tag":"🇺🇸 美国节点",
-      "type":"urltest",
+      "type":"selector",
       "outbounds":[
-        "{all}"
+        "{all}",
+        "proxy"
       ],
       "filter":[
         {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
@@ -375,11 +314,10 @@
       "type":"selector",
       "outbounds":[
         "{all}",
-        "direct",
         "proxy"
       ],
       "filter":[
-        {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|网站|剩余|流量|过期|时间|期|地址|勿连接"]}
+        {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|网站|剩余|流量|过期|时间|期|地址"]}
       ]
     },
     {
@@ -404,12 +342,8 @@
       "outbounds":[
         "{all}"
       ],
-      "filter":[
-        {"action":"exclude","keywords":["网站|剩余|流量|过期|时间|期|地址|勿连接"]}
-      ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "360m",
-      "idle_timeout": "360m",
+      "interval": "5m",
       "tolerance": 50
     },
     {
@@ -427,16 +361,36 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "final": "final",
+    "final": "proxy",
     "rules": [
       {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
         "outbound": "dns-out"
       },
       {
-        "network": "udp",
-        "port": 443,
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
         "outbound": "block"
       },
       {
@@ -465,19 +419,15 @@
         "outbound": "🤖 OpenAI"
       },
       {
-        "rule_set": ["geosite-googlefcm"],
-        "outbound": "GoogleFCM"
-      },
-      {
         "rule_set": "geosite-youtube",
         "outbound": "🌌 Google"
       },
       {
-        "rule_set": "geosite-github",
-        "outbound": "🌌 Github"
+        "rule_set": "geoip-google",
+        "outbound": "🌌 Google"
       },
       {
-        "rule_set": ["geosite-google","geoip-google"],
+        "rule_set": ["geosite-google","geosite-github"],
         "outbound": "🌌 Google"
       },
       {
@@ -533,8 +483,12 @@
         "outbound": "🎬 MediaVideo"
       },
       {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "🌏 !cn"
+      },
+      {
         "ip_is_private": true,
-        "outbound": "direct"
+        "outbound": "🌏 cn"
       },
       {
         "rule_set": "geoip-cn",
@@ -543,16 +497,7 @@
       {
         "rule_set": "geosite-cn",
         "outbound": "🌏 cn"
-      },
-      {
-        "rule_set": "geosite-gfw",
-        "outbound": "🌏 gfw"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "🌏 !cn"
       }
-
     ],
     "rule_set": [
       {
@@ -616,13 +561,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-googlefcm",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/googlefcm.srs",
         "download_detour": "direct"
       },
       {
@@ -742,13 +680,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-gfw",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/gfw.srs",
         "download_detour": "direct"
       },
       {
