@@ -65,10 +65,6 @@
       {
         "clash_mode": "global",
         "server": "proxyDns"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "server": "proxyDns"
       }
     ],
     "strategy": "prefer_ipv4"
@@ -106,6 +102,7 @@
       "type":"selector",
       "outbounds":[
         "auto",
+        "🇭🇰 香港节点",
         "direct",
         "{all}"
       ]
@@ -571,10 +568,6 @@
       {
         "rule_set": "geosite-gfw",
         "outbound": "🌏 gfw"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "🌏 !cn"
       }
     ],
     "rule_set": [
@@ -758,13 +751,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
