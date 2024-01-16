@@ -41,7 +41,14 @@
           "mirror.ghproxy.com",
           "ghproxy.com",
           "cdn.jsdelivr.net",
-          "testingcf.jsdelivr.net"
+          "testingcf.jsdelivr.net",
+          "connectivitycheck.gstatic.com",
+          "captive.apple.com",
+          "www.msftconnecttest.com",
+          "detectportal.firefox.com",
+          "connect.rom.miui.com",
+          "connectivitycheck.platform.hicloud.com",
+          "wifi.vivo.com.cn"
         ],
         "server": "localDns"
       },
