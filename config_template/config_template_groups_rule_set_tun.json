@@ -31,6 +31,11 @@
         "detour": "direct"
       },
       {
+        "tag": "systemDns",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
         "tag": "block",
         "address": "rcode://success"
       }
@@ -41,7 +46,12 @@
           "mirror.ghproxy.com",
           "ghproxy.com",
           "cdn.jsdelivr.net",
-          "testingcf.jsdelivr.net",
+          "testingcf.jsdelivr.net"
+        ],
+        "server": "localDns"
+      },
+      {
+        "domain": [
           "connectivitycheck.gstatic.com",
           "captive.apple.com",
           "www.msftconnecttest.com",
@@ -50,7 +60,7 @@
           "connectivitycheck.platform.hicloud.com",
           "wifi.vivo.com.cn"
         ],
-        "server": "localDns"
+        "server": "systemDns"
       },
       {
         "rule_set": "geosite-category-ads-all",
