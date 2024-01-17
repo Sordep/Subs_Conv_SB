@@ -63,6 +63,12 @@
         "server": "systemDns"
       },
       {
+        "package_name": [
+          "com.android.captiveportallogin"
+        ],
+        "server": "systemDns"
+      },
+      {
         "rule_set": "geosite-category-ads-all",
         "server": "block"
       },
