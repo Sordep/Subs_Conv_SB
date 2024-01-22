@@ -51,15 +51,7 @@
         "server": "localDns"
       },
       {
-        "domain": [
-          "connectivitycheck.gstatic.com",
-          "captive.apple.com",
-          "www.msftconnecttest.com",
-          "detectportal.firefox.com",
-          "connect.rom.miui.com",
-          "connectivitycheck.platform.hicloud.com",
-          "wifi.vivo.com.cn"
-        ],
+        "rule_set": "geosite-category-ads-all",
         "server": "systemDns"
       },
       {
@@ -486,6 +478,10 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "geosite-private",
+        "outbound": "direct"
+      },
+      {
         "rule_set": "geosite-openai",
         "outbound": "🤖 OpenAI"
       },
@@ -575,6 +571,13 @@
       }
     ],
     "rule_set": [
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
+        "download_detour": "direct"
+      },
       {
         "tag": "geoip-google",
         "type": "remote",
