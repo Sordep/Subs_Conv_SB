@@ -51,13 +51,7 @@
         "server": "localDns"
       },
       {
-        "rule_set": "geosite-category-ads-all",
-        "server": "systemDns"
-      },
-      {
-        "package_name": [
-          "com.android.captiveportallogin"
-        ],
+        "rule_set": "geosite-private",
         "server": "systemDns"
       },
       {
@@ -93,9 +87,6 @@
       "strict_route": false,
       "sniff": true,
       "endpoint_independent_nat": false,
-      "exclude_package": [
-        "com.android.captiveportallogin"
-      ],
       "stack": "system",
       "platform": {
         "http_proxy": {
