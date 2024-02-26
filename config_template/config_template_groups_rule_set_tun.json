@@ -448,11 +448,6 @@
         "outbound": "dns-out"
       },
       {
-        "network": "udp",
-        "port": 443,
-        "outbound": "block"
-      },
-      {
         "rule_set": "geosite-category-ads-all",
         "outbound": "🛑 AdBlock"
       },
