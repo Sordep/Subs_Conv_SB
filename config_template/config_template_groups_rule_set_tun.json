@@ -325,20 +325,6 @@
       ]
     },
     {
-      "tag":"Global",
-      "type":"selector",
-      "outbounds":[
-        "direct",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ],
-      "default": "HongKong"
-    },
-    {
       "tag":"China",
       "type":"selector",
         "outbounds":[
@@ -635,10 +621,6 @@
       {
         "rule_set": "geosite-primevideo",
         "outbound": "Streaming"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "Global"
       },
       {
         "rule_set": "geosite-private",
