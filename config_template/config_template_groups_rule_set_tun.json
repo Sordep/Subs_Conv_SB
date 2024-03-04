@@ -328,6 +328,7 @@
       "tag":"China",
       "type":"selector",
         "outbounds":[
+        "direct",
         "proxy",
         "HongKong",
         "TaiWan",
