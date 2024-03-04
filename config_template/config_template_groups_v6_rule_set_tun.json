@@ -117,7 +117,7 @@
       "type":"selector",
       "outbounds":[
         "auto",
-        "🇭🇰 香港节点",
+        "HongKong",
         "direct",
         "{all}"
       ]
@@ -216,6 +216,54 @@
       "outbounds":[
         "direct",
         "proxy",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag":"Spotify",
+      "type":"selector",
+      "outbounds":[
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag":"TikTok",
+      "type":"selector",
+      "outbounds":[
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America"
+      ],
+      "default": "Singapore"
+    },
+    {
+      "tag":"NETFLIX",
+      "type":"selector",
+      "outbounds":[
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag":"Disney+",
+      "type":"selector",
+      "outbounds":[
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -469,10 +517,6 @@
             "port": 853
           },
           {
-            "network": "udp",
-            "port": 443
-          },
-          {
             "protocol": "stun"
           }
         ],
@@ -504,7 +548,9 @@
         "outbound": "OpenAI"
       },
       {
-        "rule_set": ["geosite-googlefcm"],
+        "rule_set": [
+          "geosite-googlefcm"
+        ],
         "outbound": "GoogleFCM"
       },
       {
@@ -516,8 +562,11 @@
         "outbound": "🌌 Github"
       },
       {
-        "rule_set": ["geosite-google","geoip-google"],
-        "outbound": "🌌 Google"
+        "rule_set": [
+          "geosite-google",
+          "geoip-google"
+        ],
+        "outbound": "Google"
       },
       {
         "rule_set": "geoip-telegram",
@@ -540,7 +589,10 @@
         "outbound": "Facebook"
       },
       {
-        "rule_set":["geosite-facebook","geosite-instagram"],
+        "rule_set": [
+          "geosite-facebook",
+          "geosite-instagram"
+        ],
         "outbound": "Facebook"
       },
       {
@@ -625,13 +677,6 @@
       }
     ],
     "rule_set": [
-      {
-        "tag": "geosite-private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
-        "download_detour": "direct"
-      },
       {
         "tag": "geoip-google",
         "type": "remote",
