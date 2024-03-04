@@ -24,7 +24,7 @@ def parse(data):
             'insecure': True
         }
     }
-    if netquery.get('allowInsecure') and netquery['allowInsecure'] == '0' :
+    if netquery.get('allowInsecure') == '0' :
         node['tls']['insecure'] = False
     if netquery.get('alpn'):
         node['tls']['alpn'] = netquery.get('alpn').strip('{}').split(',')
@@ -51,7 +51,7 @@ def parse(data):
                          'Host': netquery.get('host')
                     }
                 }
-        if netquery['type'] == 'grpc':
+        elif netquery['type'] == 'grpc':
             node['transport'] = {
                 'type':'grpc',
                 'service_name':netquery.get('serviceName', '')
@@ -59,13 +59,13 @@ def parse(data):
     if netquery.get('protocol'):
         node['multiplex'] = {
             'enabled': True,
-            'protocol': netquery['protocol'],
-            'max_streams': int(netquery.get('max_streams', '0'))
+            'protocol': netquery['protocol']
         }
-        if netquery.get('max_connections'):
-            node['multiplex']['max_connections'] = int(netquery['max_connections'])
-        if netquery.get('min_streams'):
-            node['multiplex']['min_streams'] = int(netquery['min_streams'])
+        if netquery.get('max-streams'):
+            node['multiplex']['max_streams'] = int(netquery['max-streams'])
+        else:
+            node['multiplex']['max_connections'] = int(netquery['max-connections'])
+            node['multiplex']['min_streams'] = int(netquery['min-streams'])
         if netquery.get('padding') == 'True':
             node['multiplex']['padding'] = True
     return node

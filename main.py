@@ -43,10 +43,14 @@ def process_subscribes(subscribes):
     for subscribe in subscribes:
         if 'enabled' in subscribe and not subscribe['enabled']:
             continue
+        if 'sing-box-subscribe-doraemon.vercel.app' in subscribe['url']:
+            continue
         _nodes = get_nodes(subscribe['url'])
         if _nodes and len(_nodes) > 0:
             add_prefix(_nodes, subscribe)
             add_emoji(_nodes, subscribe)
+            if subscribe.get('subgroup'):
+                subscribe['tag'] = subscribe['tag'] + '-' + subscribe['subgroup'] + '-' + 'subgroup'
             if not nodes.get(subscribe['tag']):
                 nodes[subscribe['tag']] = []
             nodes[subscribe['tag']] += _nodes
@@ -104,12 +108,16 @@ def add_prefix(nodes, subscribe):
     if subscribe.get('prefix'):
         for node in nodes:
             node['tag'] = subscribe['prefix'] + node['tag']
+            if node.get('detour'):
+                node['detour'] = subscribe['prefix'] + node['detour']
 
 
 def add_emoji(nodes, subscribe):
     if subscribe.get('emoji'):
         for node in nodes:
             node['tag'] = tool.rename(node['tag'])
+            if node.get('detour'):
+                node['detour'] = tool.rename(node['detour'])
 
 
 def get_nodes(url):
@@ -188,6 +196,9 @@ def get_parser(node):
         eps = providers['exclude_protocol'].split(',')
         if len(eps) > 0:
             eps = [protocol.strip() for protocol in eps]
+            if 'hy2' in eps:
+                index = eps.index('hy2')
+                eps[index] = 'hysteria2'
             if proto in eps:
                 return None
     if not proto or proto not in parsers_mod.keys():
@@ -222,8 +233,9 @@ def get_content_from_url(url, n=6):
         # print('Lỗi khi tải link đăng ký, bỏ qua link đăng ký này')
         print('----------------------------')
         pass
-    response_text = response.text
-    response_encoding = response.encoding
+    response_content = response.content
+    response_text = response_content.decode('utf-8-sig')  # utf-8-sig 可以忽略 BOM
+    #response_encoding = response.encoding
     if response_text.isspace():
         print('没有从订阅链接获取到任何内容')
         # print('Không nhận được proxy nào từ link đăng ký')
@@ -236,9 +248,10 @@ def get_content_from_url(url, n=6):
         return response_text
     elif 'proxies' in response_text:
         yaml_content = response.content.decode('utf-8')
+        response_text_no_tabs = yaml_content.replace('\t', ' ') #fuckU
         yaml = ruamel.yaml.YAML()
         try:
-            response_text = dict(yaml.load(yaml_content))
+            response_text = dict(yaml.load(response_text_no_tabs))
             return response_text
         except:
             pass
@@ -392,6 +405,28 @@ def pro_node_template(data_nodes, config_outbound, group):
 
 def combin_to_config(config, data):
     config_outbounds = config["outbounds"] if config.get("outbounds") else None
+    i = 0
+    for group in data:
+        if 'subgroup' in group:
+            i += 1
+            for out in config_outbounds:
+                if out.get("outbounds"):
+                    if out['tag'] == 'proxy':
+                        out["outbounds"] = [out["outbounds"]] if isinstance(out["outbounds"], str) else out["outbounds"]
+                        if '{all}' in out["outbounds"]:
+                            index_of_all = out["outbounds"].index('{all}')
+                            out["outbounds"][index_of_all] = (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1]
+                            i += 1
+                        else:
+                            out["outbounds"].insert(i, (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1])
+            new_outbound = {'tag': (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1], 'type': 'selector', 'outbounds': ['{' + group + '}']}
+            config_outbounds.insert(-4, new_outbound)
+        else:
+            for out in config_outbounds:
+                if out.get("outbounds"):
+                    if out['tag'] == 'proxy':
+                        out["outbounds"] = [out["outbounds"]] if isinstance(out["outbounds"], str) else out["outbounds"]
+                        out["outbounds"].append('{' + group + '}')
     temp_outbounds = []
     if config_outbounds:
         # 提前处理all模板
