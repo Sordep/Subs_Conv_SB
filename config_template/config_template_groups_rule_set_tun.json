@@ -148,7 +148,7 @@
       ]
     },
     {
-      "tag":"🌌 Github",
+      "tag":"Github",
       "type":"selector",
       "outbounds":[
         "proxy",
@@ -531,7 +531,7 @@
       },
       {
         "rule_set": "geosite-github",
-        "outbound": "🌌 Github"
+        "outbound": "Github"
       },
       {
         "rule_set": [
