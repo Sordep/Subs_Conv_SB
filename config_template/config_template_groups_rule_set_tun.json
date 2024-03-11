@@ -81,6 +81,7 @@
         "server": "proxyDns"
       }
     ],
+    "final": "proxyDns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
