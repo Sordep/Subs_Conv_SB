@@ -64,6 +64,13 @@
         "server": "block"
       },
       {
+        "rule_set": [
+          "geosite-google",
+          "geoip-google"
+        ],
+        "server": "proxyDns"
+      },
+      {
         "outbound": "any",
         "server": "localDns",
         "disable_cache": true
