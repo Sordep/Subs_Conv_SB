@@ -51,7 +51,6 @@
         "server": "localDns"
       },
       {
-        "rule_set": "geosite-private",
         "domain_suffix": [
           ".zf-world.com",
           ".allawntech.com",
@@ -610,10 +609,6 @@
       {
         "rule_set": ["geosite-hbo", "geosite-primevideo"],
         "outbound": "Streaming"
-      },
-      {
-        "rule_set": "geosite-private",
-        "outbound": "direct"
       },
       {
         "ip_is_private": true,
