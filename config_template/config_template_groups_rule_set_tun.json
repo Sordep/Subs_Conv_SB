@@ -474,10 +474,6 @@
         "outbound": "China"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "Global"
-      },
-      {
         "rule_set": "geosite-gfw",
         "outbound": "gfw"
       }
