@@ -484,8 +484,8 @@
         {"action":"exclude","keywords":["网站|剩余|流量|过期|时间|期|地址|勿连接"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "360m",
-      "idle_timeout": "360m",
+      "interval": "3600000m",
+      "idle_timeout": "3600000m",
       "tolerance": 50
     },
     {
