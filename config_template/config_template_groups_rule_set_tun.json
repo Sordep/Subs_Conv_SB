@@ -219,20 +219,6 @@
       ]
     },
     {
-      "tag":"Bahamut",
-      "type":"selector",
-      "outbounds":[
-        "direct",
-        "proxy",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
       "tag":"Spotify",
       "type":"selector",
       "outbounds":[
@@ -244,18 +230,6 @@
         "Others"
       ],
       "default": "America"
-    },
-    {
-      "tag":"TikTok",
-      "type":"selector",
-      "outbounds":[
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America"
-      ],
-      "default": "Japan"
     },
     {
       "tag":"Netflix",
@@ -575,16 +549,8 @@
         "outbound": "BiliBili"
       },
       {
-        "rule_set": "geosite-bahamut",
-        "outbound": "Bahamut"
-      },
-      {
         "rule_set": "geosite-spotify",
         "outbound": "Spotify"
-      },
-      {
-        "rule_set": "geosite-tiktok",
-        "outbound": "TikTok"
       },
       {
         "rule_set": ["geoip-netflix", "geosite-netflix"],
@@ -603,7 +569,7 @@
         "outbound": "Microsoft"
       },
       {
-        "rule_set": ["geosite-category-games", "geosite-dmm"],
+        "rule_set": ["geosite-category-games"],
         "outbound": "Games"
       },
       {
@@ -621,10 +587,6 @@
       {
         "rule_set": "geosite-cn",
         "outbound": "China"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "outbound": "Global"
       },
       {
         "rule_set": "geosite-gfw",
@@ -731,24 +693,10 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-bahamut",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bahamut.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geosite-spotify",
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-tiktok",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tiktok.srs",
         "download_detour": "direct"
       },
       {
@@ -808,13 +756,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-dmm",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/dmm.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geosite-hbo",
         "type": "remote",
         "format": "binary",
@@ -826,13 +767,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/primevideo.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
