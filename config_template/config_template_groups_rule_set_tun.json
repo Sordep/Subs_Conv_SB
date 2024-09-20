@@ -72,7 +72,7 @@
       {
         "outbound": "any",
         "server": "localDns",
-        "disable_cache": true
+        "disable_cache": false
       },
       {
         "rule_set": "geosite-cn",
