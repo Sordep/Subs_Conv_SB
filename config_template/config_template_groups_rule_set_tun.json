@@ -51,6 +51,10 @@
         "server": "localDns"
       },
       {
+        "rule_set": "geosite-cn",
+        "server": "localDns"
+      },
+      {
         "domain_suffix": [
           ".zf-world.com",
           ".allawntech.com",
@@ -61,13 +65,6 @@
       {
         "rule_set": "geosite-category-ads-all",
         "server": "block"
-      },
-      {
-        "rule_set": [
-          "geosite-google",
-          "geoip-google"
-        ],
-        "server": "proxyDns"
       },
       {
         "outbound": "any",
