@@ -381,13 +381,17 @@
     },
     {
       "tag":"HongKong",
-      "type":"selector",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
       "filter":[
         {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "24h",
+      "idle_timeout": "300h0m0s",
+      "tolerance": 50
     },
     {
       "tag":"TaiWan",
@@ -401,13 +405,17 @@
     },
     {
       "tag":"Singapore",
-      "type":"selector",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
       "filter":[
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "24h",
+      "idle_timeout": "300h0m0s",
+      "tolerance": 50
     },
     {
       "tag":"Japan",
@@ -421,13 +429,17 @@
     },
     {
       "tag":"America",
-      "type":"selector",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
       "filter":[
         {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "24h",
+      "idle_timeout": "300h0m0s",
+      "tolerance": 50
     },
     {
       "tag":"Others",
