@@ -69,7 +69,7 @@
       {
         "outbound": "any",
         "server": "localDns",
-        "disable_cache": false
+        "disable_cache": true
       },
       {
         "clash_mode": "direct",
@@ -281,6 +281,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
