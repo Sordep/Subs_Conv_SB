@@ -1,4 +1,4 @@
-import json, os, tool, time, requests, sys, importlib, argparse, yaml, ruamel.yaml
+import json, os, tool, time, requests, sys, importlib, argparse, yaml, ruamel.yaml,base64
 import re
 from datetime import datetime
 from urllib.parse import urlparse
@@ -309,7 +309,7 @@ def get_content_form_file(url):
         return processed_list
     else:
         data = tool.readFile(url)
-        data = bytes.decode(data, encoding='utf-8')
+        data = base64.urlsafe_b64decode(data).decode('utf-8')
         data = tool.noblankLine(data)
         return data
 
