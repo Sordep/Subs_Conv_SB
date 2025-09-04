@@ -75,20 +75,15 @@
         "server": "proxyDns"
       }
     ],
-    "final": "proxyDns",
-    "strategy": "prefer_ipv4"
+    "final": "localDns",
+    "strategy": "ipv4_only"
   },
   "inbounds": [
     {
       "tag": "tun-in",
       "type": "tun",
-      "address":[
-        "172.19.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
+      "address": [
+        "172.19.0.0/30"
       ],
       "mtu": 9000,
       "auto_route": true,
@@ -563,7 +558,7 @@
         "outbound": "Microsoft"
       },
       {
-        "rule_set": ["geosite-category-games"],
+        "rule_set": ["geosite-category-games", "geosite-dmm"],
         "outbound": "Games"
       },
       {
@@ -571,11 +566,7 @@
         "outbound": "Streaming"
       },
       {
-        "rule_set": "geoip-cn",
-        "outbound": "China"
-      },
-      {
-        "rule_set": "geosite-cn",
+        "rule_set": ["geoip-cn", "geosite-cn"],
         "outbound": "China"
       },
       {
@@ -743,6 +734,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-dmm",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/dmm.srs",
         "download_detour": "direct"
       },
       {
