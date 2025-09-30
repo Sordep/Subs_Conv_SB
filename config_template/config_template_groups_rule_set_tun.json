@@ -78,7 +78,7 @@
         "mode": "and",
         "rules": [
           {
-            "rule_set": "geosite-geolocation-!cn",
+            "rule_set": "geosite-gfw",
             "invert": true
           },
           {
