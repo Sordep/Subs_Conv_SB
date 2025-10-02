@@ -373,7 +373,7 @@
         "America",
         "Others"
       ],
-      "default": "proxy",
+      "default": "proxy"
     },
     {
       "tag": "final",
