@@ -583,7 +583,7 @@
         "outbound": "Microsoft"
       },
       {
-        "rule_set": ["geosite-category-games", "geosite-dmm"],
+        "rule_set": ["geosite-category-games-!cn", "geosite-dmm"],
         "outbound": "Games"
       },
       {
@@ -755,10 +755,10 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-category-games",
+        "tag": "geosite-category-games-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games-!cn.srs",
         "download_detour": "direct"
       },
       {
