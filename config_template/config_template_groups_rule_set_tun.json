@@ -399,8 +399,8 @@
         {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "24h",
-      "idle_timeout": "300h0m0s",
+      "interval": "15m",
+      "idle_timeout": "24h",
       "tolerance": 50
     },
     {
@@ -423,8 +423,8 @@
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "24h",
-      "idle_timeout": "300h0m0s",
+      "interval": "15m",
+      "idle_timeout": "24h",
       "tolerance": 50
     },
     {
@@ -447,8 +447,8 @@
         {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "24h",
-      "idle_timeout": "300h0m0s",
+      "interval": "15m",
+      "idle_timeout": "24h",
       "tolerance": 50
     },
     {
@@ -473,8 +473,8 @@
         {"action":"exclude","keywords":["网站|剩余|流量|过期|时间|期|地址|勿连接"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "24h",
-      "idle_timeout": "300h0m0s",
+      "interval": "15m",
+      "idle_timeout": "24h",
       "tolerance": 50
     },
     {
