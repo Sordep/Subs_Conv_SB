@@ -401,7 +401,8 @@
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
       "idle_timeout": "24h",
-      "tolerance": 50
+      "tolerance": 50,
+      "interrupt_exist_connections": true
     },
     {
       "tag":"TaiWan",
@@ -425,7 +426,8 @@
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
       "idle_timeout": "24h",
-      "tolerance": 50
+      "tolerance": 50,
+      "interrupt_exist_connections": true
     },
     {
       "tag":"Japan",
@@ -449,7 +451,8 @@
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
       "idle_timeout": "24h",
-      "tolerance": 50
+      "tolerance": 50,
+      "interrupt_exist_connections": true
     },
     {
       "tag":"Others",
@@ -475,7 +478,8 @@
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
       "idle_timeout": "24h",
-      "tolerance": 50
+      "tolerance": 50,
+      "interrupt_exist_connections": true
     },
     {
       "type": "direct",
