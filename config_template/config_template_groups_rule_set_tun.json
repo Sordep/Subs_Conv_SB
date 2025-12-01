@@ -140,6 +140,20 @@
       ]
     },
     {
+      "tag":"auto",
+      "type":"urltest",
+      "outbounds":[
+        "{all}"
+      ],
+      "filter":[
+        {"action":"exclude","keywords":["网站|剩余|流量|过期|时间|期|地址|勿连接|去除"]}
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "15m",
+      "idle_timeout": "15m",
+      "tolerance": 50
+    },
+    {
       "tag":"China",
       "type":"selector",
         "outbounds":[
@@ -400,7 +414,7 @@
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
-      "idle_timeout": "24h",
+      "idle_timeout": "15m",
       "tolerance": 50,
       "interrupt_exist_connections": true
     },
@@ -425,7 +439,7 @@
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
-      "idle_timeout": "24h",
+      "idle_timeout": "15m",
       "tolerance": 50,
       "interrupt_exist_connections": true
     },
@@ -450,7 +464,7 @@
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "15m",
-      "idle_timeout": "24h",
+      "idle_timeout": "15m",
       "tolerance": 50,
       "interrupt_exist_connections": true
     },
@@ -465,21 +479,6 @@
       "filter":[
         {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|网站|剩余|流量|过期|时间|期|地址|勿连接|去除"]}
       ]
-    },
-    {
-      "tag":"auto",
-      "type":"urltest",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"exclude","keywords":["网站|剩余|流量|过期|时间|期|地址|勿连接|去除"]}
-      ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "15m",
-      "idle_timeout": "24h",
-      "tolerance": 50,
-      "interrupt_exist_connections": true
     },
     {
       "type": "direct",
