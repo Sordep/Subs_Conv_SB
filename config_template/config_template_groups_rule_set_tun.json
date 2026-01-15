@@ -488,7 +488,7 @@
   "route": {
     "default_domain_resolver": {
       "server": "localDns",
-      "strategy": "ipv4_only"
+      "strategy": "prefer_ipv4"
     },
     "auto_detect_interface": true,
     "final": "final",
