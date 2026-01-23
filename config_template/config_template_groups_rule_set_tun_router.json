@@ -111,20 +111,13 @@
       "auto_route": true,
       "strict_route": true,
       "auto_redirect": true,
-      "stack": "system",
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "listen": "0.0.0.0",
-          "listen_port": 6118
-        }
-      }
+      "stack": "system"
     },
     {
       "tag": "mixed-in",
       "type": "mixed",
       "listen": "127.0.0.1",
-      "listen_port": 7890
+      "listen_port": 6118
     }
   ],
   "outbounds": [
