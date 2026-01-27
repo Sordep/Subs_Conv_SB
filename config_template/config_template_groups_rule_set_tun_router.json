@@ -11,7 +11,7 @@
       "secret": "",
       "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "direct",
-      "default_mode": "rule",
+      "default_mode": "Enhanced",
       "access_control_allow_private_network": true
     },
   "cache_file": {
@@ -86,7 +86,8 @@
           "A",
           "AAAA"
         ],
-        "server": "proxyDns"
+        "server": "proxyDns",
+        "client_subnet": "114.114.114.114/24"
       }
     ],
     "independent_cache": true,
