@@ -13,10 +13,10 @@
       "external_ui_download_detour": "direct",
       "default_mode": "rule"
     },
-  "cache_file": {
-    "enabled": true,
-    "store_fakeip": true,
-    "store_rdrc": true
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
     }
   },
   "dns": {
@@ -156,7 +156,7 @@
     {
       "tag":"China",
       "type":"selector",
-        "outbounds":[
+      "outbounds":[
         "direct",
         "proxy",
         "HongKong",
@@ -170,7 +170,7 @@
     {
       "tag":"GoogleFCM",
       "type":"selector",
-        "outbounds":[
+      "outbounds":[
         "direct",
         "proxy",
         "HongKong",
@@ -586,6 +586,10 @@
         "outbound": "Microsoft"
       },
       {
+        "rule_set": ["geosite-category-steam@cn"],
+        "outbound": "China"
+      },
+      {
         "rule_set": ["geosite-category-games-!cn", "geosite-dmm"],
         "outbound": "Games"
       },
@@ -755,6 +759,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-category-steam@cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/steam@cn.srs",
         "download_detour": "direct"
       },
       {
