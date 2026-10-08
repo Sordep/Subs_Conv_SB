@@ -101,6 +101,7 @@
   ],
   "outbounds": [
     {"tag": "Direct","type": "direct"},
+    {"tag": "final","type": "selector","outbounds":["Proxy", "Direct"],"default": "Direct","interrupt_exist_connections": true},
     {"tag":"Proxy","type":"selector","outbounds":["Auto", "HongKong", "United States", "Singapore", "Japan", "Taiwan", "{all}", "Direct"],"default": "Direct","interrupt_exist_connections": true},
     {"tag": "AI","type": "selector","outbounds": ["Proxy", "HongKong", "United States", "Singapore", "Japan", "Taiwan"],"default": "United States","interrupt_exist_connections": true},
     {"tag": "Google","type": "selector","outbounds": ["Proxy", "HongKong", "United States", "Singapore", "Japan", "Taiwan"],"default": "United States","interrupt_exist_connections": true},
@@ -125,7 +126,7 @@
     "default_http_client": "default",
     "auto_detect_interface": true,
     "find_process": true,
-    "final": "Proxy",
+    "final": "final",
     "rules": [
       {"action": "sniff"},
       {"type": "logical","mode": "or","rules":[{"port":53},{"protocol": "dns"}],"action": "hijack-dns"},
