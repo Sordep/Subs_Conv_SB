@@ -147,6 +147,7 @@
       {"rule_set": ["AppleProxy"],"action": "route","outbound": "Proxy"},
       {"action": "resolve"},
       {"rule_set": ["ChinaIP"],"action": "route","outbound": "Direct"},
+      {"rule_set": ["ProxyGFW"],"action": "route","outbound": "Proxy"},
       {"rule_set": ["Direct"],"action": "route","outbound": "Direct"},
       {"ip_is_private": true,"action": "route","outbound": "Direct"}
     ],
@@ -160,7 +161,9 @@
           "Google", "YouTube", "Github", "Microsoft",
           "Bilibili", "Bahamut", "Emby",
           "Spotify", "Netflix", "Disney", "PrimeVideo", "HBO",
-          "AppleCN", "AppleProxy", "ChinaDomain", "ChinaIP",
+          "AppleCN", "AppleProxy",
+          "ChinaDomain", "ChinaIP",
+          "ProxyGFW",
           "Direct"
         ],
         "format": "binary",
